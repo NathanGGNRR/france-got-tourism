@@ -1,0 +1,166 @@
+<%- include('../../includes/header'); %>
+
+<body>
+    <section class="activity-header activity-header_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="activity-header_iner text-center">
+                        <h2>Create a new page</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="divPrevious">
+            <a class="btn waves-effect waves-light" href="/administration">Previous</a>
+            <a class="btn waves-effect waves-light mr-2" href="/">Home</a>
+            <a class="btn btn-logout waves-effect waves-light mr-2" href="/administration/logout">Disconnect</a>
+        </div>
+        <div class="col-12">
+            <!-- Début du form pour envoyer les données -->
+            <form action="createPage/insert" method="POST" enctype="application/x-www-form-urlencoded" id="formInsert">
+                <div class="container">
+                    <!-- Conteneur de la page -->
+                    <div class="row">
+                        <div class="input-field inline" id="divNamePage">
+                            <input id="namePage" type="text" name="namePage" class="validate">
+                            <label for="namePage">Page Name</label>
+                        </div>
+                        <!-- Bouton pourrevenir en arrière-->
+                    </div>
+                    <!-- Conteneur du filtre -->
+                    <div class="row" id="divRowFilter">
+                        <div class="input-field inline">
+                            <textarea id="taFilter" name="taFilter" class="materialize-textarea"
+                                style="width: 500px;"></textarea>
+                            <label for="taFilter">Filter</label>
+                        </div>
+                    </div>
+                    <!--Conteneur du libelle-->
+                    <div class="row" id="divRowLibelle">
+                        <div class="input-field inline">
+                            <textarea id="taLibelle" name="taLibelle" class="materialize-textarea"></textarea>
+                            <label for="taLibelle">Libelle</label>
+                        </div>
+                    </div>
+                    <!--Conteneur de l'image-->
+
+                    <!--Conteneur de la sélection des types-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select multiple id="selTypes" name="selTypes">
+                                <option value="" disabled>Choose your type</option>
+                                <% for (var i = 0; i < type.length ; i++){ %>}
+                                <option value="<%= type[i].id %>"><%= type[i].name %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Conteneur du code HTML-->
+                    <div class="row" id="divContentHTML">
+                        <div class="input-field col s12">
+                            <h5 id="hColor">Code of the page</h5>
+                            <textarea id="taContentHTML" name="taContentHTML" cols="30" rows="10">
+                                <section class="activity-header activity-header_bg shadow-lg" data-bootstrap-contains="containers">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="activity-header_iner text-center">
+                                                    <h2 class="title-activities">$title$</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="search_part">
+                                    <div id="back-button" class="waves-effect waves-light btn-large"><img class="icon-navigation" src="../assets/img/icon/arrow-left-solid.svg" alt=""></div>
+                                    <div id="home-button" class="waves-effect waves-light btn-large"><img class="icon-navigation" src="../assets/img/icon/home-solid.svg" alt=""></div>
+                                    <div class="row-filter">
+                                        <div class="input-field col-2 my-auto">
+                                            <label>Choose type of filter:</label>
+                                            <select id="select-autocomplete">
+                                                <option disabled="disabled" selected="selected" value="">Choose your option</option>
+                                                <option value="1">City</option>
+                                                <option value="2">Department</option>
+                                                <option value="3">Region</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-field col-2 my-auto">
+                                            <div id="autocomplete-label">Choose type of filter:</div>
+                                            <img class="icon-navigation prefix textsms" src="../assets/img/icon/comment-alt-solid.svg" alt=""><input id="autocomplete-input" class="autocomplete" type="text">
+                                        </div>
+                                        <div class="col-2 my-auto">
+                                            <div class="label-filter">Distance (km):
+                                                <div id="kilometre-label" class="ml-2"></div>
+                                            </div>
+                                            <p class="range-field"><input id="range-distance" max="500" min="0" step="10" type="range"></p>
+                                        </div>
+                                        <div class="d-flex flex-row col-5 my-auto pr-0">
+                                            <div class="col-auto my-auto px-0">
+                                                <div class="label-filter">Date:</div>
+                                                <p class="mr-3"><label> <input class="radio-filter" checked="checked" name="group1" type="radio" value="Specific date" data-name="specific"> <span class="radio-span">Specific date</span> </label></p>
+                                                <p class="mr-3"><label> <input class="radio-filter" name="group1" type="radio" value="Interval" data-name="interval"> <span class="radio-span">Interval</span> </label></p>
+                                            </div>
+                                            <div id="date-specificdate" class="col-8 px-0">
+                                                <div class="col-6 pl-0">
+                                                    <label class="title-filter label-date" for="from">From:</label> 
+                                                    <input id="specifiedDate" class="datepicker" type="text">
+                                                </div>
+                                            </div>
+                                            <div id="date-interval" class="d-flex flex-row display-none col-8 px-0">
+                                                <div class="col pl-0 mr-3">
+                                                    <label class="title-filter label-date" for="from">From:</label> 
+                                                    <input id="firstIntervalDate" class="datepicker first-date" type="text">
+                                                </div>
+                                                <div class="col pl-0">
+                                                    <label class="title-filter label-date" for="to">to:</label>
+                                                    <input id="secondIntervalDate" class="datepicker second-date" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="button-search waves-effect waves-light btn-large my-auto text-white p-0 px-4">Search</div>
+                                    </div>
+                                </section>
+                                <div class="container-activities">
+                                    <div class="d-flex flex-column col-5 mr-4">
+                                        <div id="wrapper-pagination" class="p-0 h-auto overflow-auto">
+                                        <section></section>
+                                        <div class="data-container "></div>
+                                    </div>
+                                    <div id="pagination-activities"></div>
+                                </div>
+                                <div class="col p-0">
+                                    <div id="mapid-activities" class="border-secondary">    
+                                        
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <input type="hidden" id="imgPathHidden" name="imgPathHidden" value="">
+                    </div>
+                </div>
+            </form>
+            <form action="/fileupload" method="post" enctype="multipart/form-data" id="formImage" name="formImage">
+                <div class="container">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Image</span>
+                            <input type="file" id="inpImage" name="inputImage">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" id="txtImage" name="txtImage">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="container mb-3">
+                <button class="btn waves-effect waves-light" type="submit" name="submitPage" id="submitPage">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+<%- include('../../includes/footer'); %>

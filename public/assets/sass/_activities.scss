@@ -1,0 +1,215 @@
+.button-info{
+	display: inline-block;
+    border: 1px solid transparent;
+    margin-top: 5px;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 12px 54px;
+	border-radius: 3px 3px 0px 0px;
+	color: $color_background;
+	border: 1px solid $color_p;
+	text-transform: uppercase;
+	background-color: $color_primary;
+	cursor: pointer;
+}
+.logo
+{
+    height: 10%;
+    width: 10%;
+}
+.title-side{
+    font-size: 25px;
+    color: $color_primary;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    width: fit-content;
+    text-shadow: 1px 1px $color_primary_dark;
+  }
+
+  .bg-color
+  {
+      background-color: #f5f5f5;
+  }
+
+    .search_part {
+        z-index: 100;
+        position: relative;
+    }
+
+    .search_part .booking_menu {
+    padding: 0 35px; }
+
+    @media (max-width: 1610px) {
+        .button-search{
+            font-size: 10px;
+            height: 25px;
+            padding-top: 12px !important;
+            line-height: 0px !important;
+        }
+    }
+    @media (max-width: 1166px) {
+        .button-search{
+            padding-left: 13px !important;
+        }
+    }
+
+
+    @media (max-width: 575px) {
+    .search_part .booking_menu {
+        padding: 0 20px; } }
+
+    .search_part .booking_menu .nav-tabs .nav-item .nav-link, .booking_part .booking_menu .nav-tabs .nav-link {
+    border-color: transparent;
+    border-bottom: 3px solid transparent;
+    text-transform: capitalize;
+    padding: 28.5px 20px; }
+
+    .search_part .booking_menu .nav-tabs {
+    border-bottom: 0px solid transparent; }
+
+    .search_part .booking_content {
+    background-color: white;
+    box-shadow: 0px 10px 40px 0px rgba(221, 221, 221, 0.3);
+    padding: 40px; }
+
+    .search_part .form-row {
+    display: flex;
+    justify-content: space-between; }
+
+    .search_part .form-row .form_colum {
+    width: 20%; }
+
+    @media (max-width: 991px) {
+    .search_part .form-row .form_colum {
+        width: 48%;
+        margin-bottom: 15px; } }
+
+    @media (max-width: 575px) {
+    .search_part .form-row .form_colum {
+        width: 100%;
+        margin-bottom: 15px; } }
+
+    .search_part .form-row .form_colum .nc_select, .booking_part .form-row .form_colum .gj-datepicker {
+    width: 100%;
+    border-color: #2493e0;
+    border-radius: 0;
+    color: #2493e0;
+    height: 50px;
+    display: flex;
+    align-items: center; }
+
+    .search_part .form-row .form_colum .nice-select:after {
+    border-bottom: 2px solid #2493e0;
+    border-right: 2px solid #2493e0;
+    content: '';
+    display: block;
+    height: 8px;
+    width: 8px;
+    right: 18px; }
+
+    .search_part .form-row .form_colum .gj-textbox-md {
+    border: 1px solid #2493e0;
+    padding: 16px;
+    color: #2493e0;
+    font-size: 14px; }
+
+    .search_part .form-row .form_colum .gj-datepicker-md [role=right-icon] {
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    font-size: 24px; }
+
+    .search_part .form-row .form_colum ::placeholder {
+    color: #2493e0; }
+
+    .search_part .nav-link.active {
+    border-bottom: 3px solid #2493e0 !important; }
+
+    .row-filter{
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+
+
+    .container-activities{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 10%;
+        margin-bottom: 30px; 
+        height: 480px;
+       
+    }
+
+    .collapsible{
+        width: 100%;
+        border-left: 2px solid $color_secondary;
+        border-right: 2px solid $color_secondary;
+        border-top: 2px solid $color_secondary;
+
+        li{
+            border-bottom: 2px solid  $color_secondary;
+        }
+    }
+
+    .collapsible-header{
+        display: flex;
+        flex-direction: row;
+        border-bottom: 0px !important;  
+        padding: 0px !important;
+        overflow-x: hidden;
+    }
+
+    .collapsible-body{
+        font-size: 15px;
+        font-weight: lighter;
+        color: $color_secondary-light;
+        border-top: 1px solid #ddd !important;
+        padding: 10px 20px !important;
+    }
+
+    .title-collapsible{
+        font-size: 20px;
+        font-weight: lighter;
+        padding: 1rem;
+        color: $color_secondary-light;
+    }
+
+   .button-collapsible{
+       display: flex;
+       background: $color_secondary-light;
+       width: 60px;
+       color: white;
+       border-left: 1px solid #ddd;
+       transition: 0.3s;
+   }
+
+    
+   .title-activities{
+       text-transform: none !important;
+   }
+
+   .button-collapsible:hover{
+       background: $color_secondary;
+       color: white;
+   }
+
+
+   #mapid-activities
+   {
+       position: relative;
+        z-index: 10;
+        height: 480px;
+   }
+
+   #home-button{
+       float: right;
+   }
+
+   .icon-navigation{
+       z-index: 50;
+       fill: white;
+       height: 23px;
+       width: 25.7px;
+   }

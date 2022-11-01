@@ -1,0 +1,70 @@
+<%- include('../includes/header'); %>
+
+<body>
+
+    <section class="activity-header activity-header_bg shadow-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="activity-header_iner text-center">
+                        <h2>SELECT CATEGORY</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="d-flex flex-row justify-content-between w-100">
+        <div class="waves-effect waves-light btn-large" id="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="waves-effect waves-light btn-large" href="/" id="home-button">
+            <i class="fas fa-home"></i>
+        </div>
+    </div>
+    <section class="section_padding">
+        <div class="mx-5 w-95">
+            <div class="row">        
+                <% for(var i=0; i < data.length; i++){ %>
+                    <div class="col-lg-3 col-md-3">
+                        <form action="activities/<%= data[i].nomPage %>" method="POST" enctype="application/x-www-form-urlencoded">
+                            <div class="single_type">
+                                <input type="hidden" name="namePage" value="<%= data[i].nomPage %>"/>
+                                <input type="hidden" name="filterQuery" value="<%= data[i].filter %>"/>
+                                <input type="hidden" name="libellePage" value="<%= data[i].libelle %>"/>
+                                <input type="hidden" name="contentHTMLPage" value="<%= data[i].contentHTML %>"/>
+                                <img src="assets/img/type/<%= data[i].image %>" alt="">
+                                <div class="hover_Text d-flex align-items-end justify-content-between">
+                                    <div class="hover_text_iner">
+                                        <h3><%= data[i].libelle %></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <div id="wait-screen" class="wait">
+        <div class="black-screen"></div>
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-white">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="title-wait">
+            Please, wait a few seconds...
+        </div>
+    </div>
+
+
+    <%- include('../includes/footer'); %>

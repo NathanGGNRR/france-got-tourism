@@ -1,0 +1,31 @@
+<%- include('../includes/header'); %>
+
+<body id="bodyMain">
+    <input type="hidden" value="<%= data %>" id="dataInput" />
+    <input type="hidden" id="cityFilter" value="<%= city %>" />
+    <input type="hidden" id="departmentFilter" value="<%= department %>" />
+    <input type="hidden" id="regionFilter" value="<%= region %>" />
+    <input type="hidden" id="titleHidden" value="<%= title %>" />
+    
+    <%- include('../includes/footer'); %>
+
+    <script>
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.replace(new RegExp(search, 'g'), replacement);
+        };
+
+        var content = `<%= contentHTML %>`;
+        content = content.replaceAll("&#34;", '"')
+        content = content.replaceAll("&lt;", '<')
+        content = content.replaceAll("&gt;", '>')
+        content = content.replaceAll("&nbsp;", '')
+        content = content.replaceAll("&amp;nbsp;", '')  
+        if(content.substring(0, 100).includes('<div class="container">')){
+            content = content.substring(63);
+            content = content.substring(0, content.length - 20);
+        }
+        console.log(content)
+        content = content.replace("$title$", $("#titleHidden").val())
+        $("#bodyMain").append($(content));
+    </script>

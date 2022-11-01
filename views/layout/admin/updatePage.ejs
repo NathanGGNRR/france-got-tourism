@@ -1,0 +1,90 @@
+<%- include('../../includes/header'); %>
+
+<body>
+  <section class="activity-header activity-header_bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="activity-header_iner text-center">
+            <h2>Update this page</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <!-- Début du form pour mettre à jour les données -->
+    <div id="divPrevious">
+      <a class="btn waves-effect waves-light" href="administration">Previous</a>
+      <a class="btn waves-effect waves-light mr-2" href="/">Home</a>
+      <a class="btn btn-logout waves-effect waves-light mr-2" href="/administration/logout">Disconnect</a>
+    </div>
+    <div class="col-12">
+      <form action="updatePage/update" method="POST" enctype="application/x-www-form-urlencoded" id="formUpdate">
+        <div class="container">
+          <!-- Conteneur de la page -->
+          <div class="row">
+            <div class="input-field inline" id="divNamePage">
+              <input type="hidden" id="namePageU" name="namePageU" type="text" class="validate" value='<%= data[0].nomPage %>'>
+            </div>
+          </div>
+          <!-- Conteneur du filtre -->
+          <div class="row" id="divRowFilter">
+            <div class="input-field col">
+              <textarea id="taFilterU" name="taFilterU" class="materialize-textarea" style="width: 500px;"><%= data[0].filter %></textarea>
+              <label for="taFilterU">Filter</label>
+            </div>
+          </div>
+          <!--Conteneur du libelle-->
+          <div class="row" id="divRowLibelle">
+            <div class="input-field inline">
+              <textarea id="taLibelleU" name="taLibelleU" class="materialize-textarea"><%= data[0].libelle %></textarea>
+              <label for="taLibelleU">Libelle</label>
+            </div>
+          </div>
+          <!--Conteneur de l'image-->
+
+          <!--Conteneur de la sélection des types-->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="hidden" name="inpSelect" id="inpSelect" value="<%= data[0].idType %>">
+              <select multiple id="selTypesU" name="selTypesU">
+                <option value="" disabled>Choose your type</option>
+                <% for (var i = 0; i < types.length ; i++){ %>}
+                <option value="<%= types[i].id %>"><%= types[i].name %></option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+          <!--Conteneur du code HTML-->
+          <div class="row" id="divContentHTML">
+            <div class="input-field col s12">
+              <h5 id="hColor">Code of the page</h5>
+              <textarea name="taContentHTMLU" id="taContentHTMLU" cols="30"
+                rows="10"><%= data[0].contentHTML %></textarea>
+            </div>
+            <!--Bouton submit-->
+          </div>
+
+          <input type="hidden" id="imgPathHidden" name="imgPathHidden" value="<%= data[0].image %>">
+      </form>
+      <form action="/fileupload" method="post" enctype="multipart/form-data" id="formImageU">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Image</span>
+            <input type="file" id="inpImageU" name="inputImage">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" id="txtImageU" name="txtImageU" value="<%= data[0].image %>">
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="submitPageU" id="submitPageU">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </section>
+</body>
+<%- include('../../includes/footer'); %>

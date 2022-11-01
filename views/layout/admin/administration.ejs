@@ -1,0 +1,55 @@
+<%- include('../../includes/header'); %>
+
+<body>
+    <section class="activity-header activity-header_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="activity-header_iner text-center">
+                        <h2>Administration</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="d-flex justify-content-between mt-4">
+            <p class="font-main title-part">Pages</p>
+            <form action="administration/createPage" method="POST" enctype="application/x-www-form-urlencoded" id="formNew">
+                <div class="button-add button-home ml-2" id="home-button">Home</div>
+                <div class="button-logout ml-2" id="logout-button">Disconnect</div>
+                <input type="submit" class="button-add" value="Add Page">
+            </form>
+        </div>
+        <div class="d-flex align-center-items mt-3">
+            <ul class="collection flex-fill">
+
+                <% for(var i=0; i < data.length; i++){ %>
+                <li class="collection-item pr-0">
+                    <div class="d-flex flex-row my-auto justify-content-between w-100">
+                        <div class="col-auto my-auto font-custom-main"><%=data[i].nomPage%></div>
+                        <div class="col my-auto list-type">
+                            <%=data[i].name%>
+                        </div>
+                        <div class="d-flex my-auto float-right">
+                            <form action="administration/updatePage" method="POST"
+                                enctype="application/x-www-form-urlencoded" id="<%=data[i].nomPage%>">
+                                <i class="material-icons mr-3 update update-icon">edit</i>
+                                <input type="hidden" name="page" value="<%=data[i].nomPage%>">
+                            </form>
+                            
+                            <form action="administration/delete" method="POST"
+                                enctype="application/x-www-form-urlencoded" id="<%=data[i].nomPage%>">
+                                <i class="material-icons mr-3 red-icon delete">delete</i>
+                                <input type="hidden" name="page" value="<%=data[i].nomPage%>">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<%- include('../../includes/footer'); %>

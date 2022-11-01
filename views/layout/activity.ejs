@@ -1,0 +1,492 @@
+<%- include('../includes/header'); %>
+<% 
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
+    function removeDuplicates(arr){
+        let unique_array = []
+        for(let i = 0;i < arr.length; i++){
+            if(unique_array.indexOf(arr[i]) == -1){
+                unique_array.push(arr[i])
+            }
+        }
+        return unique_array 
+    } 
+
+
+%>
+<section class="activity-header activity-header_bg shadow-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="activity-header_iner text-center">
+                    <h2><%= data.rdfs_label[0].value %></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="d-flex flex-row justify-content-between w-100">
+    <div class="waves-effect waves-light btn-large" id="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="waves-effect waves-light btn-large" href="/" id="home-button">
+        <i class="fas fa-home"></i>
+    </div>
+</div>
+<section class="section_padding">
+    <div class="container">       
+        <div class="row ">
+            <div class="col-lg-8 mb-5 mb-lg-0 pr-5">
+                <div class="row mt-3">
+                    <% if(data.hasMainRepresentation.length != 0) { %>
+                    <img src="<%= data.hasMainRepresentation[0].ebucore_hasRelatedResource[0].ebucore_locator[0] %>"
+                        alt="" class="img-fluid img-representation">
+                    <% } else { %>
+                        <img src="/assets/img/NoImageFound.png" alt="" class="img-fluid img-representation">
+                    <% } %>
+                    <div class="mt-3">
+                        <p> <% if (data.hasDescription.length != 0) { %>
+                                <% if (data.hasDescription[0].shortDescription.length != 0 && data.hasDescription[0].dc_description.length != 0) { %>
+                                <%= data.hasDescription[0].dc_description[0].value %>
+                                <% } else if (data.hasDescription[0].shortDescription.length != 0){ %>
+                                <%= data.hasDescription[0].shortDescription[0].value %>
+                                <% } else if(data.hasDescription[0].dc_description.length != 0){ %>
+                                <%= data.hasDescription[0].dc_description[0].value %>
+                                <% } else { %>
+                                No description.
+                                <% } %>
+                            <% } else { %>
+                                No description.
+                            <% } %>
+                        </p>
+                    </div>
+                </div>
+                <% if (data.hasTheme.length != 0) { %>
+                <div class="row-flex mt-3">
+                    <%  for(var i=0; i < data.hasTheme.length; i++) { %>
+                    <div class="tag-theme">
+                        <%= data.hasTheme[i].rdfs_label[0].value %>
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+                <% if (data.hasReview.length != 0 && data.hasReview[0].hasReviewValue.length != 0) { %>
+                <div class="row-flex mt-3">
+                    <i class="fas fa-star icon-info-secondary my-auto"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasReview[0].hasReviewValue[0].rdfs_label[0].value %>
+                    </p>
+                </div>
+                <% } %>
+                <% if (data.isLocatedAt.length != 0){ %>
+                <div class="col p-0 m-0 pt-2">
+                    <div class="title-part">
+                        <div class="horizontal-line"></div>
+                        <div class="horizontal-line-colored my-3"></div>
+                        LOCATED AT:
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-home icon-info-secondary"></i>
+                        <div class="media-body">
+                            <p class="ml-2 font-weight-normal">
+                                <% if(data.isLocatedAt[0].schema_address.length != 0) {%>
+                                <% if (data.isLocatedAt[0].schema_address[0].schema_streetAddress != null) { %>
+                                <%= data.isLocatedAt[0].schema_address[0].schema_streetAddress[0] + ", " %>
+                                <% } %>
+                                <% if (data.isLocatedAt[0].schema_address[0].schema_addressLocality != null) { %>
+                                <%= data.isLocatedAt[0].schema_address[0].schema_addressLocality[0] %>
+                                <% } %>
+                                <% if (data.isLocatedAt[0].schema_address[0].schema_postalCode != null) { %>
+                                <%= data.isLocatedAt[0].schema_address[0].schema_postalCode[0] %>
+                                <% } %>
+                                <% } %>
+                            </p>
+                        </div>
+                    </div>
+                    <% if (data.hasNeighborhood.length != 0){ %>
+                    <div class="row-flex mt-3">
+                        <%  for(var i=0; i < data.hasNeighborhood.length; i++) { %>
+                        <div class="tag-theme">
+                            <%= data.hasNeighborhood[i].rdfs_label[0].value %>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+                <% if(data.isLocatedAt.length != 0 && data.isLocatedAt[0].schema_openingHoursSpecification.length != 0 ) {
+                    var empty = true;
+                    for(var i=0; i < data.isLocatedAt[0].schema_openingHoursSpecification.length; i++) {
+                        if(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_opens != null) {
+                            empty = false;
+                            break;
+                        } else if (data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_closes != null) {
+                            empty = false;
+                            break;
+                        } else if(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek.length != 0){
+                            empty = false;
+                            break;
+                        }
+                    }
+                    if (empty == false){ %>
+                <div class="col p-0 m-0 pt-2">
+                    <div class="title-part">
+                        <div class="horizontal-line"></div>
+                        <div class="horizontal-line-colored my-3"></div>
+                        OPENED ON:
+                    </div>
+                    <% var timeObject = new Object(); %>
+
+                    <% for(var i=0; i < data.isLocatedAt[0].schema_openingHoursSpecification.length; i++) {  %>
+                    <% if(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_opens != null && data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_closes != null && data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek.length != 0) {  %>
+                    <% var dayOfWeek = "" %>
+                    <% for(var j=0; j < data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek.length; j++) {  %>
+                    <% dayOfWeek += data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek[j].rdfs_label[0].value + ", ";  %>
+                    <% }  %>
+                    <% var timeInterval =  String(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_opens[0]).substring(0,5) + "-" +  String(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_closes[0]).substring(0,5) %>
+                    <% if( timeInterval in timeObject == false) { %>
+                    <% timeObject[timeInterval] = [] %>
+                    <% timeObject[timeInterval].push(dayOfWeek) %>
+                    <% } else { %>
+                    <% timeObject[timeInterval].push(dayOfWeek) %>
+                    <% } %>
+                    <% } else if(data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek.length != 0) { %>
+
+                    <% var dayOfWeek = [];
+                                    for(var j=0; j < data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek.length; j++) {
+                                        dayOfWeek.push(" " + data.isLocatedAt[0].schema_openingHoursSpecification[i].schema_dayOfWeek[j].rdfs_label[0].value);
+                                    }
+                                    if("NO-TIME" in timeObject){
+                                        for(var k=0; k < dayOfWeek.length; k++) {
+                                            if(!timeObject["NO-TIME"].includes(dayOfWeek[k])){
+                                                timeObject["NO-TIME"].push(dayOfWeek[k]);
+                                            }
+                                        }
+                                    } else {
+                                        timeObject["NO-TIME"] = dayOfWeek 
+                                    } %>
+                    <% } else { %>
+                    <div class="row-flex">
+                        <i class="fas fa-calendar icon-info-secondary"></i>
+                        <h5 class="color-p font-weight-normal ml-2 my-auto">
+                            No information provided.
+                        </h5>
+                    </div>
+                    <% } %>
+                    <% } %>
+                    <% if(Object.size(timeObject) != 0) {%>
+                    <% Object.keys(timeObject).map(function(objectKey, index) {  %>
+                    <% if(objectKey != "NO-TIME"){ %>
+                    <% var uniqueNames = []; %>
+                    <% timeObject[objectKey] = removeDuplicates(timeObject[objectKey]) %>
+                    <div class="row-flex">
+                        <i class="fas fa-clock icon-info-secondary my-auto mt-2"></i>
+                        <h5 class="ml-2 mt-2 font-weight-bold"><%= objectKey %>:</h5>
+                        <h5 class="color-p font-weight-normal ml-2 mt-2">
+                            <% var dayOfTime = ""; %>
+                            <% for(var i=0; i < timeObject[objectKey].length; i++) {
+                                                    dayOfTime += timeObject[objectKey][i];
+                                                    };
+                                                %>
+                            <%= dayOfTime.substring(0, dayOfTime.length - 2) %>
+                        </h5>
+                    </div>
+                    <% } else { %>
+                    <div class="row-flex mb-2">
+                        <i class="fas fa-calendar icon-info-secondary"></i>
+                        <h5 class="color-p font-weight-normal ml-2 my-auto ">
+                            <%= timeObject["NO-TIME"] %>
+                        </h5>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                    <% } %>
+                </div>
+                <% } %>
+                <% } %>
+                <% if (data.takesPlaceAt.length != 0) { %>
+                <div class="col p-0 m-0 pt-2">
+                    <div class="title-part">
+                        <div class="horizontal-line"></div>
+                        <div class="horizontal-line-colored my-3"></div>
+                        TAKES PLACE AT:
+                    </div>
+                    <div class="row-flex">
+                        <i class="fas fa-door-open icon-info-secondary color-good my-auto mt-2"></i>
+                        <% var dateStart = String(data.takesPlaceAt[0].startDate).substring(0,10).split("-") %>
+                        <h5 class="color-p font-weight-normal ml-2 mt-2">
+                            <%=  dateStart[2] + "/" + dateStart[1] + "/" + dateStart[0] %></h5>
+                        <i class="fas fa-door-closed icon-info-secondary ml-3 color-bad my-auto mt-2"></i>
+                        <% var dateEnd = String(data.takesPlaceAt[0].endDate).substring(0,10).split("-") %>
+                        <h5 class="color-p font-weight-normal ml-2 mt-2">
+                            <%=  dateEnd[2] + "/" + dateEnd[1] + "/" + dateEnd[0] %></h5>
+                    </div>
+                </div>
+                <% } %>
+                <% if (data.isEquippedWith.length != 0 && data.hasFeature.length != 0) { %>
+                <div class="col p-0 m-0 pt-2">
+                    <div class="title-part">
+                        <div class="horizontal-line"></div>
+                        <div class="horizontal-line-colored my-3"></div>
+                        ON SPOT:
+                    </div>
+                    <div class="row-flex">
+                        <i class="fas fa-map-marker icon-info-secondary my-auto icon-marker"></i>
+                        <% for(var i=0; i < data.isEquippedWith.length; i++) { %>
+                        <div class="col-auto mb-2 d-flex flex-column">
+                            <h5 class="color-secondary font-weight-normal mb-0">
+                                <%= data.isEquippedWith[i].rdfs_label[0].value %></h5>
+                            <% if(!(data.hasFeature.length == 1 && data.hasFeature[0].features.length > 1)) { %>
+                            <% for(var j=0; j < data.hasFeature.length; j++) { %>
+                            <% if( data.hasFeature[j].features.length != 0 && data.hasFeature[j].features[0].rdfs_label[0].value == data.isEquippedWith[i].rdfs_label[0].value && data.hasFeature[j].charged != null){ %>
+                                <% if(data.hasFeature[j].charged[0] == false){ %>
+                                <img class="img-fluid icon-free mt-1" src="../assets/img/icon/icon-free.svg"
+                                    alt="It's free">
+                                <% } else { %>
+                                <img class="img-fluid icon-not-free mt-1" src="../assets/img/icon/icon-not-free.svg"
+                                    alt="It's not free">
+                                <% } %>
+                                <% break; %>
+                            <% } %>
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="col-auto p-0">
+                            <div class="vertical-line-info mx-auto"></div>
+                        </div>
+                        <div class="col-auto p-0">
+                            <div class="vertical-line-info mx-auto"></div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+
+                <% var arrayInformation = new Object(); %>
+                <% if(!(data.hasFeature.length == 1 && data.hasFeature[0].features.length > 1)) { %>
+                <% for(var i=0; i < data.hasFeature.length; i++) { %>
+                <% if(data.hasFeature[i].features.length == 0) { %>
+                <% if(data.hasFeature[i].internetAccess != null && "internetAccess" in arrayInformation  == false){ %>
+                <% arrayInformation["internetAccess"] = data.hasFeature[i].internetAccess[0]; %>
+                <% } %>
+                <% if(data.hasFeature[i].petsAllowed != null && "petsAllowed" in arrayInformation  == false){ %>
+                <% arrayInformation["petsAllowed"] = data.hasFeature[i].petsAllowed[0]; %>
+                <% } %>
+                <% } %>
+                <% } %>
+                <% } else { %>
+                <% if(data.hasFeature[0].internetAccess != null && "internetAccess" in arrayInformation  == false){ %>
+                <% arrayInformation["internetAccess"] = data.hasFeature[0].internetAccess[0]; %>
+                <% } %>
+                <% if(data.hasFeature[0].petsAllowed != null && "petsAllowed" in arrayInformation  == false){ %>
+                <% arrayInformation["petsAllowed"] = data.hasFeature[0].petsAllowed[0]; %>
+                <% } %>
+                <% } %>
+                <% if(data.reducedMobilityAccess != null){ %>
+                <% arrayInformation["reducedMobilityAccess"] = data.reducedMobilityAccess[0]; %>
+                <% } %>
+                <% if (Object.size(arrayInformation) != 0) { %>
+                <div class="col p-0 m-0 pt-2">
+                    <div class="title-part">
+                        <div class="horizontal-line"></div>
+                        <div class="horizontal-line-colored my-3"></div>
+                        MORE INFORMATION:
+                    </div>
+                    <div class="row-flex">
+                        <% if("petsAllowed" in arrayInformation){ %>
+                        <% if(arrayInformation["petsAllowed"]){ %>
+                        <i class="fas fa-dog icon-more-info mr-3 color-good"></i>
+                        <% } else { %>
+                        <i class="fas fa-dog icon-more-info mr-3 color-bad"></i>
+                        <% } %>
+                        <% } %>
+                        <% if("internetAccess" in arrayInformation){ %>
+                        <% if(arrayInformation["internetAccess"]){ %>
+                        <i class="fas fa-wifi icon-more-info mr-3 color-good"></i>
+                        <% } else { %>
+                        <i class="fas fa-wifi icon-more-info mr-3 color-bad"></i>
+                        <% } %>
+                        <% } %>
+                        <% if("reducedMobilityAccess" in arrayInformation){ %>
+                        <% if(arrayInformation["reducedMobilityAccess"]){ %>
+                        <i class="fas fa-wheelchair icon-more-info mr-3 color-good"></i>
+                        <% } else { %>
+                        <i class="fas fa-wheelchair icon-more-info mr-3 color-bad"></i>
+                        <% } %>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="col-md-auto p-0">
+                <div class="vertical-line mx-auto"></div>
+            </div>
+            <% if (data.hasContact.length != 0) { %>
+            <div class="col m-0 right-container">
+                <div class="title-part">
+                    <div class="horizontal-line"></div>
+                    <div class="horizontal-line-colored my-3"></div>
+                    CONTACT US:
+                </div>
+                <% if (data.hasContact[0].schema_legalName != null) { %>
+                <div class="line-contact align-items-center">
+                    <i class="fas fa-users icon-info-secondary"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasContact[0].schema_legalName[0] %></p>
+                </div>
+                <% } else if(data.hasBeenCreatedBy.length != 0 && data.hasBeenCreatedBy[0].schema_legalName != null){ %>
+                <div class="line-contact align-items-center">
+                    <i class="fas fa-users icon-info-secondary"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasBeenCreatedBy[0].schema_legalName[0] %></p>
+                </div>
+                <% } %>
+                <% if (data.hasContact[0].schema_telephone != null) { %>
+                <div class="line-contact align-items-center">
+                    <i class="fas fa-phone icon-info-secondary"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasContact[0].schema_telephone[0] %></h3>
+                </div>
+                <% } %>
+                <% if (data.hasContact[0].schema_email != null) { %>
+                <div class="line-contact align-items-center">
+                    <i class="fas fa-envelope icon-info-secondary"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasContact[0].schema_email[0] %></h3>
+                </div>
+                <% } %>
+                <% if (data.hasContact[0].schema_faxNumber != null) { %>
+                <div class="line-contact align-items-center">
+                    <i class="fas fa-fax icon-info-secondary"></i>
+                    <p class="ml-2 font-weight-normal"><%= data.hasContact[0].schema_faxNumber[0] %></h3>
+                </div>
+                <% } %>
+                <% } %>
+                <% if (data.offers.length != 0 && data.offers[0].schema_priceSpecification.length != 0) { %>
+                <div class="title-part">
+                    <div class="horizontal-line"></div>
+                    <div class="horizontal-line-colored my-3"></div>
+                    OFFER(S):
+                </div>
+                <% for(var i=0; i < data.offers[0].schema_priceSpecification.length; i++) { %>
+                <% if(data.offers[0].schema_priceSpecification[i].hasEligiblePolicy.length != 0){ %>
+                <div class="d-flex align-items-center flex-row">
+                    <p class="font-weight-normal color-secondary ml-2 mt-auto">
+                        <%= data.offers[0].schema_priceSpecification[i].hasEligiblePolicy[0].rdfs_label[0].value %>:</p>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_price != null) { %>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_price[0] == "0"){ %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">FREE</h2>
+                    <% } else { %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">
+                        <%= data.offers[0].schema_priceSpecification[i].schema_price[0] %></h2>
+                    <i class="fas fa-euro-sign icon-info-third ml-1 mt-1"></i>
+                    <% } %>
+                    <% } else { %>
+                    <% if (data.offers[0].schema_priceSpecification[i].schema_maxPrice != null){ %>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_maxPrice[0] == "0"){ %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">FREE</h2>
+                    <% } else { %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">
+                        <%= data.offers[0].schema_priceSpecification[i].schema_maxPrice[0] %></h2>
+                    <i class="fas fa-euro-sign icon-info-third ml-1 mt-1"></i>
+                    <% } %>
+                    <% } else { %>
+                    <h2 class="font-weight-light ml-2 color-third m-0 text-small">NO INFORMATION PROVIDED</h2>
+                    <% } %>
+                    <% } %>
+                </div>
+                <% } else { %>
+                <div class="d-flex align-items-center flex-row">
+                    <p class="font-weight-normal color-secondary ml-2 mt-auto">Offer n° <%= i + 1 %>:</p>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_price != null) { %>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_price[0] == "0"){ %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">FREE</h2>
+                    <% } else { %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">
+                        <%= data.offers[0].schema_priceSpecification[i].schema_price[0] %></h2>
+                    <i class="fas fa-euro-sign icon-info-third ml-1 mt-1"></i>
+                    <% } %>
+                    <% } else { %>
+                    <% if (data.offers[0].schema_priceSpecification[i].schema_maxPrice != null){ %>
+                    <% if(data.offers[0].schema_priceSpecification[i].schema_maxPrice[0] == "0"){ %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">FREE</h2>
+                    <% } else { %>
+                    <h2 class="font-weight-bold ml-2 color-third m-0">
+                        <%= data.offers[0].schema_priceSpecification[i].schema_maxPrice[0] %></h2>
+                    <i class="fas fa-euro-sign icon-info-third ml-1 mt-1"></i>
+                    <% } %>
+                    <% } else { %>
+                    <h2 class="font-weight-light ml-2 color-third m-0 text-small">NO INFORMATION PROVIDED</h2>
+                 <% } %> <% } %>
+                </div>
+                <% } %>
+                <% } %>
+                <% } %>
+                <% if (data.offers.length != 0 && (data.offers[0].schema_priceSpecification.length != 0 || data.offers[0].schema_acceptedPaymentMethod.length != 0)) { %>
+                <div class="title-part">
+                    <div class="horizontal-line"></div>
+                    <div class="horizontal-line-colored my-3"></div>
+                    ABOUT OFFER(S):
+                </div>
+                <% if (data.offers[0].schema_priceSpecification.length != 0 && data.offers[0].schema_priceSpecification[0].schema_priceCurrency.length != 0){ %>
+                <div class="d-flex align-items-center flex-row">
+                    <i class="fas fa-money-bill-wave icon-info-secondary"></i>
+                    <p class="font-weight-normal ml-2 my-auto">
+                        <%= data.offers[0].schema_priceSpecification[0].schema_priceCurrency[0] %></p>
+                </div>
+                <% } %>
+                <% if (data.offers[0].schema_acceptedPaymentMethod.length != 0){ %>
+                <div class="d-flex align-items-center flex-row mt-2">
+                    <div class="col-auto p-0">
+                        <img class="img-fluid icon-payment-method" src="../assets/img/icon/payment-method.svg"
+                            alt="Payment method">
+                    </div>
+                    <div class="col p-0">
+                        <h5 class="font-weight-normal color-p ml-2 my-auto">
+                            <% var acceptedPaymentMethod = ""; %>
+                            <% for(var i=0; i < data.offers[0].schema_acceptedPaymentMethod.length; i++) { 
+                                        acceptedPaymentMethod += data.offers[0].schema_acceptedPaymentMethod[i].rdfs_label[0].value + ", ";
+                                    } %>
+                            <%= acceptedPaymentMethod.substring(0, acceptedPaymentMethod.length - 2) %>
+                        </h5>
+                    </div>
+                </div>
+                <% } %>
+                <% if (data.offers[0].schema_priceSpecification.length != 0 && data.offers[0].schema_priceSpecification[0].hasPricingMode.length != 0){ %>
+                <div class="d-flex align-items-center flex-row mt-2">
+                    <i class="fas fa-users-cog icon-info-secondary"></i>
+                    <p class="font-weight-normal ml-2 my-auto">
+                        <%= data.offers[0].schema_priceSpecification[0].hasPricingMode[0].rdfs_label[0].value %></p>
+                </div>
+                <% } %> <% } %>
+            </div>
+        </div>
+        <div class="horizontal-line-colored mt-5"></div>
+        <div class="title-part mt-3">
+            MAP LOCATION:
+        </div>
+        <div class="d-none d-sm-block mb-5 pb-4">
+            <div id="mapid" class="border-secondary">
+                <script>  var mymap = L.map('mapid').setView([<%= data.isLocatedAt[0].schema_geo[0].schema_latitude[0] %>, <%= data.isLocatedAt[0].schema_geo[0].schema_longitude[0] %>], 13);
+                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                        maxZoom: 18,
+                        id: 'mapbox.streets',
+                        accessToken: 'pk.eyJ1IjoibWFydGluYmFsbWUiLCJhIjoiY2sycHc5aWt4MDgzdDNucWI3MjBkaGgybCJ9.V1cuFKfvJlY55p0oaonLEw'
+                    }).addTo(mymap);
+
+                var marker = L.marker([<%= data.isLocatedAt[0].schema_geo[0].schema_latitude[0] %>, <%= data.isLocatedAt[0].schema_geo[0].schema_longitude[0] %>]).addTo(mymap);
+                var popupOptions =
+                {
+                    keepInView: true
+                }
+                var popup = L.popup(popupOptions).setContent("<%= data.rdfs_label[0].value %>");
+                marker.bindPopup(popup).openPopup();
+                </script>
+            </div>
+        </div>
+</section>
+
+
+<%- include('../includes/footer'); %>

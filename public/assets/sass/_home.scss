@@ -1,0 +1,834 @@
+
+.section_padding {
+    padding: 110px 0px; }
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      .section_padding {
+        padding: 60px 0px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .section_padding {
+        padding: 50px 0px; } }
+    @media (max-width: 575px) {
+      .section_padding {
+        padding: 50px 0px; } }
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      .section_padding {
+        padding: 50px 0px; } }
+  
+  
+  .default-select {
+    height: 40px; }
+    .default-select .nice-select {
+      border: none;
+      border-radius: 0px;
+      height: 40px;
+      background: #f9f9ff;
+      padding-left: 20px;
+      padding-right: 40px; }
+      .default-select .nice-select .list {
+        margin-top: 0;
+        border: none;
+        border-radius: 0px;
+        box-shadow: none;
+        width: 100%;
+        padding: 10px 0 10px 0px; }
+        .default-select .nice-select .list .option {
+          font-weight: 300;
+          -webkit-transition: all 0.3s ease 0s;
+          -moz-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s;
+          line-height: 28px;
+          min-height: 28px;
+          font-size: 12px;
+          padding-left: 20px; }
+          .default-select .nice-select .list .option.selected {
+            color: #f9f9ff;
+            background: transparent; }
+          .default-select .nice-select .list .option:hover {
+            color: #f9f9ff;
+            background: transparent; }
+    .default-select .current {
+      margin-right: 50px;
+      font-weight: 300; }
+    .default-select .nice-select::after {
+      right: 20px; }
+  
+  .form-select {
+    height: 40px;
+    width: 100%; }
+    .form-select .nice-select {
+      border: none;
+      border-radius: 0px;
+      height: 40px;
+      background: #f9f9ff;
+      padding-left: 45px;
+      padding-right: 40px;
+      width: 100%; }
+      .form-select .nice-select .list {
+        margin-top: 0;
+        border: none;
+        border-radius: 0px;
+        box-shadow: none;
+        width: 100%;
+        padding: 10px 0 10px 0px; }
+        .form-select .nice-select .list .option {
+          font-weight: 300;
+          -webkit-transition: all 0.3s ease 0s;
+          -moz-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s;
+          line-height: 28px;
+          min-height: 28px;
+          font-size: 12px;
+          padding-left: 45px; }
+          .form-select .nice-select .list .option.selected {
+            color: #f9f9ff;
+            background: transparent; }
+          .form-select .nice-select .list .option:hover {
+            color: #f9f9ff;
+            background: transparent; }
+    .form-select .current {
+      margin-right: 50px;
+      font-weight: 300; }
+    .form-select .nice-select::after {
+      right: 20px; }
+  
+  
+  
+  .banner_part .banner_text h1 span {
+    color: #0f2288; }
+  
+  .banner_part .banner_text .btn_1 {
+    background-color: #0f2288; }
+  
+  .booking_part .booking_menu .nav-tabs .nav-item .nav-link, .booking_part .booking_menu .nav-tabs .nav-link {
+    color: #08b4a4; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h3 a {
+    color: #08b4a4; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h5 span {
+    color: #0f2288; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h3 a {
+    color: #08b4a4; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h5 span {
+    color: #0f2288; }
+  
+  .best_services .single_ihotel_list h3 a {
+    color: #08b4a4; }
+  
+  /**************** extend css start ****************/
+  /* line 8, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_extends.scss */
+  /**************** banner part css start ****************/
+  .banner_part {
+    height: 880px;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../img/banner_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; }
+  
+  @media (max-width: 575px) {
+    .banner_part {
+      height: 650px;
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .banner_part {
+      height: 650px;
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .banner_part {
+      height: 700px;
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .banner_part {
+      background-size: cover;
+      height: 650px; } }
+  
+  .banner_part .banner_text {
+    display: table;
+    width: 100%;
+    height: 880px; }
+  
+  .banner_part .banner_text .banner_text_iner {
+    display: table-cell;
+    vertical-align: middle; }
+  
+  @media (max-width: 575px) {
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 700px; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .banner_part .banner_text {
+      height: 650px; } }
+  
+  .banner_part .banner_text p {
+    font-size: 24px; }
+  
+  .banner_part .banner_text h1 {
+    font-size: 120px;
+    line-height: 1;
+    text-transform: capitalize;
+    font-weight: 900;
+    margin-bottom: 22px; }
+  
+  @media (max-width: 575px) {
+    .banner_part .banner_text h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.4; } }
+  
+  .banner_part .banner_text h3 {
+    font-size: 48px;
+    font-weight: 300; }
+  
+  @media (max-width: 575px) {
+    .banner_part .banner_text h3 {
+      font-size: 28px; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .banner_part .banner_text h3 {
+      font-size: 28px; } }
+  
+  .banner_part .banner_text .btn_1 {
+    margin-top: 60px;
+    background-color: #2493e0;
+    padding: 23px 79px; }
+  
+  /**************** hero part css end ****************/
+  /*********** booking css start *************/
+  .booking_part {
+    margin-top: -80px;
+    z-index: 9;
+    position: relative; }
+  
+  .booking_part .booking_menu {
+    padding: 0 35px; }
+  
+  @media (max-width: 575px) {
+    .booking_part .booking_menu {
+      padding: 0 20px; } }
+  
+  .booking_part .booking_menu .nav-tabs .nav-item .nav-link, .booking_part .booking_menu .nav-tabs .nav-link {
+    border-color: transparent;
+    border-bottom: 3px solid transparent;
+    text-transform: capitalize;
+    padding: 28.5px 20px; }
+  
+  .booking_part .booking_menu .nav-tabs {
+    border-bottom: 0px solid transparent; }
+  
+  .booking_part .booking_content {
+    background-color: white;
+    box-shadow: 0px 10px 40px 0px rgba(221, 221, 221, 0.3);
+    padding: 40px; }
+  
+  .booking_part .form-row {
+    display: flex;
+    justify-content: space-between; }
+  
+  .booking_part .form-row .form_colum {
+    width: 20%; }
+  
+  @media (max-width: 991px) {
+    .booking_part .form-row .form_colum {
+      width: 48%;
+      margin-bottom: 15px; } }
+  
+  @media (max-width: 575px) {
+    .booking_part .form-row .form_colum {
+      width: 100%;
+      margin-bottom: 15px; } }
+  
+  .booking_part .form-row .form_colum .nc_select, .booking_part .form-row .form_colum .gj-datepicker {
+    width: 100%;
+    border-color: #2493e0;
+    border-radius: 0;
+    color: #2493e0;
+    height: 50px;
+    display: flex;
+    align-items: center; }
+  
+  .booking_part .form-row .form_colum .nice-select:after {
+    border-bottom: 2px solid #2493e0;
+    border-right: 2px solid #2493e0;
+    content: '';
+    display: block;
+    height: 8px;
+    width: 8px;
+    right: 18px; }
+  
+  .booking_part .form-row .form_colum .gj-textbox-md {
+    border: 1px solid #2493e0;
+    padding: 16px;
+    color: #2493e0;
+    font-size: 14px; }
+  
+  .booking_part .form-row .form_colum .gj-datepicker-md [role=right-icon] {
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    font-size: 24px; }
+  
+  .booking_part .form-row .form_colum ::placeholder {
+    color: #2493e0; }
+  
+  .booking_part .nav-link.active {
+    border-bottom: 3px solid #2493e0 !important; }
+  
+  .hotel_list .single_ihotel_list {
+    position: relative;
+    -webkit-transition: 1s;
+    transition: 1s;
+    border-bottom: 1px solid #ced8e3; }
+  
+  .hotel_list .single_ihotel_list img {
+    width: 100%; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner {
+    padding: 33px 0; }
+  
+  @media (max-width: 991px) {
+    .hotel_list .single_ihotel_list .hotel_text_iner {
+      padding: 15px 0 45px; } }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h3 {
+    font-size: 24px;
+    margin-bottom: 21px; }
+  
+  @media (max-width: 991px) {
+    .hotel_list .single_ihotel_list .hotel_text_iner h3 {
+      margin-bottom: 10px; } }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner p {
+    padding: 10px 0; }
+  
+  .hotel_list .single_ihotel_list .hotel_text_iner h5 {
+    height: 5px; }
+  
+  .hotel_list .single_ihotel_list .hover_text {
+    position: absolute;
+    right: 10%;
+    bottom: 49%;
+    z-index: 9;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
+  
+  .hotel_list .single_ihotel_list .hover_text .share_icon {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    transform: scaleX(1); }
+  
+  .hotel_list .single_ihotel_list .hover_text .share_icon i {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff !important;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%; }
+  
+  .hotel_list .single_ihotel_list .hover_text .hotel_social_icon {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    transform: scaleY(0); }
+  
+  .hotel_list .single_ihotel_list .hover_text .hotel_social_icon ul li {
+    text-align: center; }
+  
+  .hotel_list .single_ihotel_list .hover_text .hotel_social_icon ul li i {
+    border-radius: 50%;
+    background-color: rgba(255, 122, 75, 0.7);
+    top: 3771px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    margin: 5px 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
+  
+  .hotel_list .single_ihotel_list .hover_text:hover .hotel_social_icon {
+    transform: scaleY(1); }
+  
+  .hotel_list .single_ihotel_list .hover_text:hover .share_icon {
+    transform: scaleX(0); }
+  
+  /******** best services css *********/
+  @media (max-width: 991px) {
+    .best_services .single_ihotel_list {
+      margin-bottom: 25px; } }
+  
+  .best_services .single_ihotel_list img {
+    margin-bottom: 32px; }
+  
+  @media (max-width: 991px) {
+    .best_services .single_ihotel_list img {
+      margin-bottom: 10px;
+      width: 100%; } }
+  
+  .best_services .single_ihotel_list h3 a {
+    font-size: 24px;
+    margin-bottom: 20px; }
+  
+  
+  @media only screen and (min-width: 1200px) and (max-width: 3640px) {
+    /* line 242, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
+    .container {
+      max-width: 1170px; } }
+  
+  
+  /**************** banner part css start ****************/
+  /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part {
+    position: relative;
+    overflow: hidden;
+    background-image: url(../img/index/imageParis.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; }
+  
+  @media (max-width: 575px) {
+    /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part {
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part {
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part {
+      background-color: #f0eed4; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part {
+      background-size: cover;
+      } }
+  
+  /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text {
+    display: table;
+    width: 100%;
+    }
+  
+  /* line 32, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text .banner_text_iner {
+    display: table-cell;
+    vertical-align: middle; }
+  
+  @media (max-width: 575px) {
+    /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 700px; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text {
+      height: 650px; } }
+  
+  /* line 55, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text p {
+    font-size: 24px;
+    color: #fff; }
+  
+  /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text h1 {
+    font-size: 120px;
+    line-height: 1;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 22px; }
+  
+  @media (max-width: 575px) {
+    /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3; } }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.4; } }
+  
+  /* line 86, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text h1 span {
+    color: #0f2288; }
+  
+  /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text h3 {
+    font-size: 48px;
+    font-weight: 300;
+    color: #fff; }
+  
+  @media (max-width: 575px) {
+    /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h3 {
+      font-size: 28px; } }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+    .banner_part .banner_text h3 {
+      font-size: 28px; } }
+  
+  /* line 106, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text .btn_1 {
+    margin-top: 60px;
+    background-color: #0f2288;
+    padding: 23px 79px; }
+  
+  /* line 110, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+  .banner_part .banner_text .btn_1:hover {
+    color: #fff;
+    background-color: #05144d; }
+  
+  /* line 93, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h1 {
+    font-size: 36px; }
+  
+  /* line 97, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h2 {
+    font-size: 30px; }
+  
+  /* line 101, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h3 {
+    font-size: 24px; }
+  
+  /* line 105, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h4 {
+    font-size: 18px; }
+  
+  /* line 109, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h5 {
+    font-size: 16px; }
+  
+  /* line 113, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h6 {
+    font-size: 14px; }
+  
+  /* line 117, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_elements.scss */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2em; }
+  
+  .row-filter{
+    display: flex;
+    flex-direction: row;
+    background: white;
+    margin: 0 10%;
+    padding: 20px;
+    border: 2px solid $color_white_dark;
+  }
+
+
+  .datepicker{
+    padding-left: 15px !important;
+    font-weight: lighter;
+    color: $color_secondary_light !important;
+    border-top: 1px solid $color_secondary !important;
+    border-left: 1px solid $color_secondary !important;
+    border-right: 1px solid $color_secondary !important;
+    border-bottom: 2px solid $color_secondary !important;
+  }
+
+
+  label{
+    margin-bottom: 0px !important;
+  }
+
+input[type="radio"]:not(:checked) + span, [type="radio"]:checked + span{
+  padding-left: 30px !important;
+}
+
+
+.thumb.active .value  {
+  font-size: 15px !important;
+  margin-left: -1px !important;
+  margin-top: 2px !important;
+}
+
+.datepicker-modal{
+  z-index: 100;
+  height:auto;
+}
+
+.display-none{
+  display: none !important;
+}
+
+.date-filter{
+  -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.input-field .select-wrapper input.select-dropdown{
+  padding-left: 15px;
+  font-weight: lighter;
+  color: $color_secondary_light !important;
+  border-top: 1px solid $color_secondary !important;
+  border-left: 1px solid $color_secondary !important;
+  border-right: 1px solid $color_secondary !important;
+  border-bottom: 2px solid $color_secondary !important;
+  margin-bottom: 0px !important;
+}
+
+.input-field .select-wrapper input.select-dropdown:focus{
+  border-top: 2px solid $color_secondary !important;
+  border-left: 2px solid $color_secondary !important;
+  border-right: 2px solid $color_secondary !important;
+  border-bottom: 2px solid $color_secondary_dark !important;
+}
+
+.input-field > label, .input-field > #autocomplete-label, .label-filter, .label-date{
+  position: relative !important;
+  color: #9e9e9e;
+  font-size: 1rem;
+  transform: translateY(0px);
+  left: 0px !important;
+  margin-bottom: 3px !important;
+}
+
+.autocomplete {
+  width: 80% !important;
+  padding-left: 45px !important;
+  font-weight: lighter;
+  color: $color_secondary_light !important;
+  border-top: 1px solid $color_secondary !important;
+  border-left: 1px solid $color_secondary !important;
+  border-right: 1px solid $color_secondary !important;
+  border-bottom: 2px solid $color_secondary !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+}
+
+.input-field > .autocomplete:disabled {
+  opacity: 0.3;
+}
+
+
+
+.textsms{
+  top: 36px !important;
+  color: $color_secondary_light !important;
+}
+
+@media (max-width: 1254px) {
+  .textsms{
+    top: 58px !important;
+    color: $color_secondary_light !important;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .textsms{
+    top: 55px !important;
+    color: $color_secondary_light !important;
+  }
+}
+
+@media (max-width: 868px) {
+  .textsms{
+    top: 77px !important;
+    color: $color_secondary_light !important;
+  }
+}
+
+.textsms:hover{
+  cursor: default !important;
+}
+
+.autocomplete:focus {
+  border-top: 2px solid $color_secondary !important;
+  border-left: 2px solid $color_secondary !important;
+  border-right: 2px solid $color_secondary !important;
+  border-bottom: 2px solid $color_secondary_dark !important;
+}
+
+
+.radio-span{
+  font-weight: lighter;
+  color: $color_secondary_light !important;
+}
+
+.btn-large {
+  border-radius: 0px !important;
+  font-weight: bold;
+}
+
+.btn-large:hover {
+  background: $color_secondary_dark !important;
+}
+
+.hotel_list, .best_services{
+  padding: 25px 0px;
+}
+
+.best_services{
+  background: $color_background;
+}
+
+.section_tittle{
+  margin-bottom: 15px;
+}
+
+.booking_part{
+  background: transparent;
+}
+
+.title-three a{
+  font-weight: normal;
+  color: $color_secondary;
+}
+
+.single_ihotel_list h3 a {
+  font-weight: normal;
+  color: $color_secondary !important;
+}
+
+.title-three{
+  margin: 10px 0px !important;
+}
+
+.title-three-ville{
+  color: $color_p;
+  font-weight: lighter;
+  margin-bottom: 5px !important;
+}
+
+.index-header_bg {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  @include background("../img/index/vue-paris.jpg", top, 100% 526px, no-repeat);
+  height: 526px;
+  background-attachment: fixed;  
+}
+
+.site-title{
+  position: relative;
+  margin-left: 20px;
+  font-size: 50px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.title-home {
+  text-shadow: 1px 1px $color_primary_dark;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+#kilometre-label{
+  color: $color_secondary;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.label-filter{
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-footer{
+  font-size: 25px;
+  color: #777777;
+  cursor: pointer;
+}

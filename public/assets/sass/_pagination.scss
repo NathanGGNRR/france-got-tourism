@@ -1,0 +1,258 @@
+.paginationjs{
+    line-height:1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:16px;
+    box-sizing:initial;
+}
+
+.paginationjs:after{
+    display:table;
+    content:" ";
+    clear:both;
+}
+
+.paginationjs .paginationjs-pages{
+    float:left;
+    margin-top: 15px;
+}
+
+.paginationjs .paginationjs-pages ul{
+    float:left;
+    margin:0;
+    padding:0;
+}
+.paginationjs .paginationjs-go-button,.paginationjs .paginationjs-go-input,.paginationjs .paginationjs-nav{
+    float:left;
+    margin-left:10px;
+    font-size:16px;
+    margin-top: 15px;
+}
+
+.paginationjs .paginationjs-pages li{
+    float:left;
+    border:2px solid $color_secondary;
+    border-right:none;
+    list-style:none;
+}
+
+.paginationjs .paginationjs-pages li>a{
+    min-width:30px;
+    height:28px;
+    line-height:28px;
+    display:block;
+    background:#fff;
+    font-size:16px;
+    color:$color_secondary_light;
+    text-decoration:none;
+    text-align:center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.paginationjs .paginationjs-pages li>a:hover{
+    background:#eee;
+}
+
+.paginationjs .paginationjs-pages li.active{
+    border:1px solid $color_secondary;
+}
+
+.paginationjs .paginationjs-pages li.active>a{
+    height:30px;
+    line-height:30px;
+    background:$color_secondary;
+    color:#fff;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a{
+    opacity:.3;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a:hover{
+    background:0 0;
+}
+
+.paginationjs .paginationjs-pages li:first-child,.paginationjs .paginationjs-pages li:first-child>a{
+    border-radius:0px;
+}
+
+.paginationjs .paginationjs-pages li:last-child{
+    border-right:2px solid $color_secondary;
+    border-radius: 0px;
+}
+
+.paginationjs .paginationjs-pages li:last-child>a{
+    border-radius:0px;
+}
+    
+.paginationjs .paginationjs-go-input>input[type=text]{
+    width:30px;
+    height: 28px;
+    background:#fff;
+    border-radius:0px;
+    border:2px solid $color_secondary;
+    font-size:16px;
+    text-align:center;
+    vertical-align:baseline;
+    outline:0;
+    box-shadow:none;
+    box-sizing:initial;
+    padding: 5px;
+    font-weight: bold;
+    margin: 0 !important;
+    color: $color_secondary_light;
+}
+
+.paginationjs .paginationjs-go-button>input[type=button]{
+    min-width:40px;
+    line-height:28px;
+    background:#fff;
+    border-radius:0px;
+    border:2px solid $color_secondary;
+    text-align:center;
+    font-size:16px;
+    vertical-align:baseline;
+    outline:0;
+    box-shadow:none;
+    color:$color_secondary_light;
+    cursor:pointer;
+    vertical-align:middle;
+    padding: 5px;
+    font-weight: bold;
+    height: 100%;
+}
+
+.paginationjs.paginationjs-theme-blue .paginationjs-go-input>input[type=text],.paginationjs.paginationjs-theme-blue .paginationjs-pages li{
+    border-color:#289de9;
+}
+
+.paginationjs .paginationjs-go-button>input[type=button]:hover{
+    background-color:#f8f8f8;
+}
+
+.paginationjs .paginationjs-nav{
+    height:30px;
+    line-height:30px;
+}
+
+.paginationjs .paginationjs-go-button,.paginationjs .paginationjs-go-input{
+    margin-left:5px;
+}
+
+.paginationjs.paginationjs-small{
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-pages li>a{
+    min-width:26px;
+    height:24px;
+    line-height:24px;
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-pages li.active>a{
+    height:26px;
+    line-height:26px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-go-input{
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-go-input>input[type=text]{
+    width:26px;
+    height:24px;
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-go-button{
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-go-button>input[type=button]{
+    min-width:30px;
+    height:26px;
+    line-height:24px;
+    padding:0 6px;
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-small .paginationjs-nav{
+    height:26px;
+    line-height:26px;
+    font-size:12px;
+}
+
+.paginationjs.paginationjs-big{
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-pages li>a{
+    min-width:36px;
+    height:34px;
+    line-height:34px;
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-pages li.active>a{
+    height:36px;
+    line-height:36px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-go-input{
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-go-input>input[type=text]{
+    width:36px;
+    height:34px;
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-go-button{
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-go-button>input[type=button]{
+    min-width:50px;
+    height:36px;
+    line-height:34px;
+    padding:0 12px;
+    font-size:16px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-nav{
+    height:36px;
+    line-height:36px;
+    font-size:16px;
+}
+
+
+.paginationjs .paginationjs-pages li.paginationjs-next{
+    border-right:2px solid $color_secondary;
+}
+
+.paginationjs .paginationjs-go-input>input[type=text]{
+    line-height:28px;
+    vertical-align:middle;
+}
+
+.paginationjs.paginationjs-big .paginationjs-pages li>a{
+    line-height:36px;
+}
+
+.paginationjs.paginationjs-big .paginationjs-go-input>input[type=text]{
+    height:36px;
+    line-height:36px;
+}
+
+#wrapper-pagination {
+    margin: 20px 0px;
+}
+.data-container {
+    margin-top: 20px;
+}
+.data-container ul {
+    padding: 0;
+    margin: 0;
+}

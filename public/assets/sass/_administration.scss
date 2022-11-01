@@ -1,0 +1,106 @@
+.vertical-center-text
+{
+    vertical-align: center;
+}
+
+ul#horizontal-menu li
+{
+	display: inline;
+}
+
+.red-icon
+{
+	color: #a52727;
+	cursor: pointer;
+}
+
+.update-icon
+{
+	color: $color_primary;
+	cursor: pointer;
+}
+
+.font-main
+{
+	font-size: 40px;
+	color: $color_primary;
+	vertical-align: center;
+}
+
+.font-custom-main
+{
+	font-weight: bold;
+	color: $color_secondary;
+	font-size: 20px;
+}
+
+.font-custom
+{
+	color: lightgray;
+}
+
+.button-add{
+	display: inline-block;
+	border: 1px solid transparent;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 12px 30px;
+	border-radius: 4px;
+	color: $color_background;
+	border: 1px solid $color_p;
+	text-transform: uppercase;
+	background-color: $color_secondary;
+	cursor: pointer;
+}
+
+
+.list-type{
+	color: $color_p;
+	font-size: 15px;
+	word-wrap: break-word;
+}
+
+
+#divPrevious {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+
+#divPrevious a {
+	float: right;
+}
+
+.button-home{
+	line-height: 1.15 !important;
+}
+
+.title-connexion{
+	font-size: 35px !important;
+	width: auto !important;
+}
+
+.label-active{
+	transform-origin: left !important;
+	margin-top: 5px;
+}
+
+.button-logout{
+	display: inline-block;
+    border: 1px solid transparent;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 30px;
+    border-radius: 4px;
+    color: #f7f7f7;
+    border: 1px solid #a2a2a2;
+    text-transform: uppercase;
+	background-color: $color_bad;
+	line-height: 1.15;
+    cursor: pointer;
+}
+
+.btn-logout{
+	background-color: $color_bad !important;
+}
